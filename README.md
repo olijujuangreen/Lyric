@@ -1,6 +1,9 @@
+<img width="1536" height="1024" alt="ChatGPT Image May 30, 2026, 05_48_13 PM" src="https://github.com/user-attachments/assets/223d418e-f1b6-4818-a01a-a5a48cd34d8a" />
+
 # Lyric
 
 Lyric is a SwiftUI-only message composer extracted from Ekkos. It provides a reusable input bar with attachment, reply, dictation, and sending states while keeping app-specific message, model, upload, and networking logic in the consuming app.
+
 
 Lyric is intentionally generic. It does not know about clips, users, conversations, or media upload backends. Apps map their own domain models into lightweight Lyric descriptor values.
 
