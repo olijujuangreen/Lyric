@@ -13,12 +13,25 @@ import Testing
 func defaultComposerStateUsesEnabledLabelsAndOpacity() {
     let state = LyricComposerState()
 
+    #expect(state.showsAttachmentButton)
+    #expect(state.showsMicButton)
     #expect(state.canAttach)
     #expect(!state.isSending)
     #expect(state.micButtonOpacity == 0.82)
     #expect(state.sendButtonOpacity == 0.86)
     #expect(state.micButtonAccessibilityLabel == "Start dictation")
     #expect(state.sendButtonAccessibilityLabel == "Send message")
+}
+
+@Test("composer state can hide optional controls")
+func composerStateCanHideOptionalControls() {
+    let state = LyricComposerState(
+        showsAttachmentButton: false,
+        showsMicButton: false
+    )
+
+    #expect(!state.showsAttachmentButton)
+    #expect(!state.showsMicButton)
 }
 
 @Test("disabled composer state lowers button opacity")

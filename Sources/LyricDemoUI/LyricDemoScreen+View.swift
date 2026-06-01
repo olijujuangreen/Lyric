@@ -11,7 +11,7 @@ import SwiftUI
 extension LyricDemoScreen: View {
     public var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
+            ZStack(alignment: .bottom) {
                 List {
                     Section("State") {
                         Picker("Mode", selection: $mode) {
@@ -28,6 +28,7 @@ extension LyricDemoScreen: View {
                         }
                     }
                 }
+                .safeAreaPadding(.bottom, 72)
 
                 LyricComposer(
                     draftMessage: $draftMessage,

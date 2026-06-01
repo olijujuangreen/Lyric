@@ -6,6 +6,8 @@
 //
 
 public struct LyricComposerState: Equatable {
+    public let showsAttachmentButton: Bool
+    public let showsMicButton: Bool
     public let canAttach: Bool
     public let isSending: Bool
     public let isSendDisabled: Bool
@@ -18,12 +20,16 @@ public struct LyricComposerState: Equatable {
     public var sendButtonAccessibilityLabel: String { isSending ? "Sending message" : "Send message" }
 
     public init(
+        showsAttachmentButton: Bool = true,
+        showsMicButton: Bool = true,
         canAttach: Bool = true,
         isSending: Bool = false,
         isSendDisabled: Bool = false,
         isMicDisabled: Bool = false,
         isMicActive: Bool = false
     ) {
+        self.showsAttachmentButton = showsAttachmentButton
+        self.showsMicButton = showsMicButton
         self.canAttach = canAttach
         self.isSending = isSending
         self.isSendDisabled = isSendDisabled

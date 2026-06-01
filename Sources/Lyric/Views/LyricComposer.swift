@@ -70,27 +70,16 @@ public struct LyricComposer: View {
     }
 
     private var composerRow: some View {
-        #if os(iOS)
-        GlassEffectContainer(spacing: 8) {
-            HStack(alignment: .bottom, spacing: 8) {
-                attachmentButton
-                inputCapsule
-            }
-            .frame(maxWidth: .infinity)
-        }
-        .padding(.horizontal, 16)
-        .padding(.top, 6)
-        .padding(.bottom, 8)
-        #else
         HStack(alignment: .bottom, spacing: 8) {
-            attachmentButton
+            if state.showsAttachmentButton {
+                attachmentButton
+            }
             inputCapsule
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 16)
         .padding(.top, 6)
         .padding(.bottom, 8)
-        #endif
     }
 
     private var attachmentButton: some View {
@@ -101,9 +90,7 @@ public struct LyricComposer: View {
         }
         .buttonStyle(.plain)
         .disabled(!state.canAttach)
-        #if os(iOS)
-        .glassEffect(in: Circle())
-        #else
+        #if os(macOS)
         .background(.regularMaterial, in: Circle())
         #endif
     }
@@ -114,15 +101,15 @@ public struct LyricComposer: View {
 
             HStack(alignment: .bottom, spacing: 8) {
                 messageField
-                micButton
+                if state.showsMicButton {
+                    micButton
+                }
                 sendButton
             }
             .frame(minHeight: 44)
         }
         .frame(maxWidth: .infinity, minHeight: 44)
-        #if os(iOS)
-        .glassEffect(in: inputShape)
-        #else
+        #if os(macOS)
         .background(.regularMaterial, in: inputShape)
         #endif
     }

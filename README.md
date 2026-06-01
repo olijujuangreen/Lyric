@@ -9,7 +9,7 @@ Lyric is intentionally generic. It does not know about clips, users, conversatio
 
 ## Requirements
 
-- iOS 26+ for the Liquid Glass composer UI
+- iOS 26+ for the composer UI
 - macOS 15+ for SwiftPM host builds and the demo fallback UI
 - Swift 6
 
@@ -60,6 +60,8 @@ struct ChatScreen: View {
                 thumbnail: .symbol("person.crop.circle.fill")
             ),
             state: LyricComposerState(
+                showsAttachmentButton: true,
+                showsMicButton: true,
                 canAttach: true,
                 isSending: false,
                 isSendDisabled: draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
